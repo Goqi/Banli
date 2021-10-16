@@ -12,7 +12,7 @@ Chestnut是一款简单好用的高危资产多线程批量识别工具！本项
 
 ## 0x01-基本介绍
 
-[<img src="https://z3.ax1x.com/2021/10/16/5JDLPe.png" alt="5JDLPe.png" style="zoom: 50%;" />](https://imgtu.com/i/5JDLPe)
+[![5Jsnld.md.png](https://z3.ax1x.com/2021/10/16/5Jsnld.md.png)](https://imgtu.com/i/5Jsnld)
 
 ​		我们有一只比熊，她的名字叫板栗。她时而很活泼，时而很安静，像极了这个Chestnut平台。因为活泼所以她可以高效快速的进行资产识别，因为安静所以她在可以尽可能的不被安全设备发现。Chestnut是一款由Go语言开发的企业高危资产识别工具。可以很方便的收集内网或外网的高危资产，方便渗透测试和红队评估人员进行快速识别资产，从而快速定位漏洞，最终拿到权限！
 
