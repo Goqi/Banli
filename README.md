@@ -27,7 +27,7 @@ Chestnut是一款简单好用的高危资产多线程批量识别工具！本项
 
 ​	目前支持识别的资产：后期会定期进行更新！
 
-- 通达OA、蓝凌OA、Shiro、Weblogic、Seeoyon、ThinkPHP、万户OA。
+- 通达OA、蓝凌OA、Shiro、Weblogic、Seeoyon、ThinkPHP、万户OA、phpMyAdmin。
 
 ## 0x05-更新记录
 
