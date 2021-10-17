@@ -25,15 +25,15 @@ Chestnut是一款简单好用的高危资产多线程批量识别工具！本项
 
 - 运行程序，查看帮助信息。
 
-![](\Releases\1.png)
+![](.\Releases\1.png)
 
 - 运行程序，扫描识别全部资产。
 
-![](\Releases\2.png)
+![](.\Releases\2.png)
 
 - 运行程序，扫描单个资产识别。
 
-![](\Releases\3.png)
+![](.\Releases\3.png)
 
 ## 0x04-资产列表
 
