@@ -81,7 +81,7 @@ Chestnut(板栗)是一款简单好用的高危资产和高危漏洞扫描工具�
 
 ​	目前支持识别的资产：后期会定期进行更新！
 
-- 通达OA、蓝凌OA、Shiro、Weblogic、Seeoyon、ThinkPHP、万户OA、phpMyAdmin、Coremail。
+- 通达OA、蓝凌OA、Shiro、Weblogic、Seeoyon、ThinkPHP、万户OA、phpMyAdmin、Coremail、红帆OA、ActiveMQ、Axis2、宝塔面板、ElasticSearch、帆软报表。
 
 ## 0x05-更新记录
 
