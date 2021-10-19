@@ -4,7 +4,7 @@ Banli是一款简单好用的高危资产和高危漏洞扫描工具！
 
 本项目是深入学习Go语言后计划陆续发布的项目之一。项目暂不考虑开源，因为代码写的太烂。本项目仅用于安全研究人员在授权的情况下使用，请遵守网络安全法，若因本工具产生任何后果请自负，与作者无关！程序不会添加任何形式的后门，运行程序不会对系统产生危害，请各位师傅放心使用！
 
-本项目创建于2021年10月16日，最近一次更新时间为2021年10月18日。
+本项目创建于2021年10月16日，最近一次更新时间为2021年10月19日。
 
 - [0x01-基本介绍](https://github.com/0e0w/Chestnut#0x01-%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D)
 - [0x02-设计思路](https://github.com/0e0w/Chestnut#0x02-%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%B7%AF)
@@ -19,63 +19,55 @@ Banli是一款简单好用的高危资产和高危漏洞扫描工具！
 
 ## 0x02-设计思路
 
-​	Chestnut要解决的问题是如何快速识别企业的高危资产，如何快速扫描企业的高危漏洞。包括Web资产、中间件资产、框架资产、安全设备资产的识别等，包括Web漏洞、。项目设计时考虑到了尽可能的避免触发安全告警。设计思路包括多利用404页面，少用特定的后台等敏感页面等。具体的设计实现方式后续会公开！
+​	Banli要解决的问题是如何快速识别企业的高危资产，如何快速扫描企业的高危漏洞。包括Web资产、中间件资产、框架资产、安全设备等高危资产的识别，包括Web漏洞、命令执行漏洞、反序列化等高危漏洞的扫描。项目设计时考虑到了尽可能的避免触发安全告警。设计思路包括多利用404页面，少用特定的后台等敏感页面等。具体的设计实现方式后续会公开！
 
 ## 0x03-使用说明
 
-​	本工具适用于甲方乙方安全人员对资产目标的快速发现与识别。方便快速发现资产挖掘漏洞实现财富自由或是更快速的发现存在漏洞的资产从而成为一名优秀的打工人。
+​		程序设计时遵循简单原则，开发时去除了多余的用户可控参数，因此很多参数用户无法自定义。所有的资产识别模块都是对当前路径的urls.txt文件进行扫描。所有的漏洞扫描模块都是对资产识别之后自动生成的文件进行扫描。例如：通过命令Banli.exe isseeyon扫描Seeyon资产，若有，则存在的结果会记录在isSeeyon.txt文件中，之后直接使用Banli.exe hackseeyon即可对Seeyon资产进行Seeyon漏洞扫描。减少无用功，拒绝无效努力！
+
+- 程序目前有如下功能：
+  - **资产识别**
+    - 所有资产扫描：Banli.exe isall
+    - 内网资产扫描：Banli.exe isn
+    - 外网资产扫描：Banli.exe isw
+    - 单个高危资产扫描：Banli.exe isshiro
+  - **漏洞扫描**
+    - 单个漏洞全部资产扫描：Banli.exe hackseeyon
+  - **信息收集**
+    - title获取：Banli.exe title
 
 - 运行程序，查看帮助信息：Banli.exe help
 
   ```
-  程序作者:0e0w 
-  程序名称:Banli(v0.3)
-  开发时间:2021年10月17日 
-  程序说明:一款简单好用的高危资产和高危漏洞扫描工具！ 
+  Banli.exe help
+  程序作者:0e0w
+  程序名称:Banli(v0.4)
+  开发时间:2021年10月19日
+  程序说明:一款简单好用的高危资产和高危漏洞扫描工具！
   请在当前目录创建urls.txt文件进行资产识别扫描！！！！
   
   Usage:
-    Chestnut [flags]
-    Chestnut [command]
+    Banli [flags]
+    Banli [command]
   
   Available Commands:
     completion  generate the autocompletion script for the specified shell
-    expall      Scan all vulnerabilities.
-    expseeyon   Scan seeyon all vulnerabilities.
+    hackseeyon  Scan seeyon all vulnerabilities.
     help        Help about any command
     isall       Scan all assets.
+    isn         Scan Intranet assets.
     isseeyon    Scan Seeyon assets.
     isshiro     Scan Shiro assets.
-    isweblogic  Scan Weblogic assets.
+    isw         Scan Extranet assets.
+    title       Get assets title.
   
   Flags:
-    -h, --help   help for Chestnut
+    -h, --help   help for Banli
   
-  Use "Chestnut [command] --help" for more information about a command.
-  程序运行完成！运行时间:13.5079ms
+  Use "Banli [command] --help" for more information about a command.
+  程序运行完成！运行时间:14.0715ms
   ```
 
-- 运行程序，扫描全部资产：Banli.exe isall
-
-  ```
-  程序作者:0e0w 
-  程序名称:板栗Banli(v0.3) 
-  开发时间:2021年10月17日 
-  程序说明:一款简单好用的高危资产和高危漏洞扫描工具！ 
-  ################### 开始识别Coremail资产！###############
-  资产总数: 99 个
-  程序用时: 20.0099854 s
-  
-  ################### 开始识别Shiro资产！#################
-  资产总数: 99 个
-  程序用时: 20.1962996 s
-  
-  程序运行完成！运行时间:20.5079ms
-  ```
-
-- 运行程序，扫描单个资产：Banli.exe isshiro
-- 运行程序，扫描ThinkPHP漏洞：Banli.exe hackthinkphp
-- 运行程序，扫描Seeyon漏洞：Banli.exe hackseeyon
 
 ## 0x04-资产列表
 
@@ -85,6 +77,7 @@ Banli是一款简单好用的高危资产和高危漏洞扫描工具！
 
 ## 0x05-更新记录
 
+- 2021年10月19日：支持Title扫描。支持内网资产和外网资产分开扫描。
 - 2021年10月18日：添加新的资产识别，Chestnut更名为Banli。
 - 2021年10月17日：优化程序，支持扫描单个资产列表，加入漏洞扫描功能。
 - 2021年10月16日：项目框架基本完成。
@@ -92,3 +85,6 @@ Banli是一款简单好用的高危资产和高危漏洞扫描工具！
 ## 0x06-参考资源
 
 - https://golang.org
+- https://github.com/Anonymous-ghost/AttackWebFrameworkTools
+
+[![Stargazers over time](https://starchart.cc//Goqi/Banli.svg)](https://starchart.cc/Goqi/Banli)
