@@ -22,13 +22,13 @@ Banli要解决的问题是如何快速识别企业的高危资产，如何快速
 
 ## 0x03-使用说明
 
-程序设计时遵循简单原则，开发时去除了多余的用户可控参数，因此很多参数用户无法自定义。所有的资产识别模块都是对当前路径的urls.txt文件进行扫描。所有的漏洞扫描模块都是对资产识别之后自动生成的文件进行扫描。例如：通过命令Banli.exe is seeyon扫描Seeyon资产，若有，则存在的结果会记录在isSeeyon.txt文件中，之后直接使用Banli.exe hack seeyon即可对Seeyon资产进行Seeyon漏洞扫描。减少无用功，拒绝无效努力！
+程序设计时遵循简单原则。项目尽可能的去掉了用户可控参数，因此很多参数用户无法自定义。资产识别功能都是对当前路径的urls.txt文件进行扫描。漏洞扫描模块都是对资产识别之后自动生成的文件进行扫描。例如：通过命令Banli.exe is seeyon扫描Seeyon资产，若有，则存在的结果会记录在isSeeyon.txt文件中，之后直接使用Banli.exe hack seeyon即可对Seeyon资产进行Seeyon漏洞扫描。减少无用功，拒绝无效努力！
 
 - 程序目前有如下功能：
   - **资产识别**
     - 所有资产扫描：Banli.exe isall
     - 内网资产扫描：Banli.exe isnei
-    - 外网资产扫描：Banli.exe iswwai
+    - 外网资产扫描：Banli.exe iswai
     - 单个高危资产扫描：Banli.exe is shiro
   - **漏洞扫描**
     - 单个漏洞全部资产扫描：Banli.exe hack seeyon
