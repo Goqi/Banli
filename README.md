@@ -37,7 +37,7 @@ Banli要解决的问题是如何快速识别企业的高危资产，如何快速
     - title获取：Banli.exe title
   - **端口扫描**
     - 待实现
-  
+
 - 运行程序，查看帮助信息：Banli.exe help
 
   ```
@@ -96,5 +96,6 @@ Banli要解决的问题是如何快速识别企业的高危资产，如何快速
 
 - https://golang.org
 - https://github.com/Goqi/Banli
+- https://github.com/0x727/FingerprintHub
 
 [![Stargazers over time](https://starchart.cc//Goqi/Banli.svg)](https://starchart.cc/Goqi/Banli)
