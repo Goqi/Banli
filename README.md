@@ -1,8 +1,8 @@
 # Banli
 
-Banli是一款简单好用的高危资产和高危漏洞扫描工具！本项目也是自己在深入学习理解Go语言后计划陆续发布的项目之一。项目暂不考虑开源，因为代码写的还不够完美。本项目仅用于安全研究人员在授权的情况下使用，请遵守网络安全法，若因本工具产生任何问题，后果请自负，与作者无关！程序代码中不会添加任何形式的后门，运行程序一般情况下不会对系统产生危害，请各位师傅放心使用！本项目会持续更新，直到海枯石烂。
+Banli是一款简单好用的高危资产和高危漏洞扫描工具！本项目也是自己在深入学习理解Go语言后计划陆续发布的项目之一。本项目仅用于安全研究人员在授权的情况下使用，请遵守网络安全法，若因本工具产生任何问题，后果请自负，与作者无关！程序代码中不会添加任何形式的后门，运行程序一般情况下不会对系统产生危害，请各位师傅放心使用！项目暂不考虑开源，因为代码写的还不够完美。本项目会持续更新，直到海枯石烂。
 
-本项目创建于2021年10月16日，最近一次更新时间为2021年10月21日。
+本项目创建于2021年10月16日，最近一次更新时间为2021年10月29日。
 
 - [0x01-基本介绍](https://github.com/Goqi/Banli#0x01-%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D)
 - [0x02-设计思路](https://github.com/Goqi/Banli#0x02-%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%B7%AF)
@@ -74,10 +74,11 @@ Banli要解决的问题是如何快速识别企业的高危资产，如何快速
 
 ​	目前支持识别的资产：后期会定期进行更新！
 
-- 通达OA、蓝凌OA、Shiro、Weblogic、Seeoyon、ThinkPHP、万户OA、phpMyAdmin、Coremail、红帆OA、ActiveMQ、Axis2、宝塔面板、ElasticSearch、帆软报表、Hadoop。
+- 通达OA、蓝凌OA、Shiro、Weblogic、Seeoyon、ThinkPHP、万户OA、phpMyAdmin、Coremail、红帆OA、ActiveMQ、Axis2、宝塔面板、ElasticSearch、帆软报表、Hadoop、Swagger、SpringBoot、Solr、Tomcat、Gitlab。
 
 ## 0x05-更新记录
 
+- 2021年10月29日：添加支持新的资产识别，优化程序。发布v0.6版本。
 - 2021年10月20日：添加单个资产的扫描方式。例：Banli.exe is thinkphp
 - 2021年10月19日：支持Title扫描。支持内网资产和外网资产分开扫描。
 - 2021年10月18日：添加新的资产识别，Chestnut更名为Banli。
@@ -97,5 +98,6 @@ Banli要解决的问题是如何快速识别企业的高危资产，如何快速
 - https://golang.org
 - https://github.com/Goqi/Banli
 - https://github.com/0x727/FingerprintHub
+- https://github.com/veo/vscan
 
 [![Stargazers over time](https://starchart.cc//Goqi/Banli.svg)](https://starchart.cc/Goqi/Banli)
