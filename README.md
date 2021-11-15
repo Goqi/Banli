@@ -1,13 +1,13 @@
 # Banli
 
-Banli是一款简单好用的高危资产和高危漏洞扫描工具！本项目也是自己在深入学习理解Go语言后计划陆续发布的项目之一。本项目仅用于安全研究人员在授权的情况下使用，请遵守网络安全法，若因本工具产生任何问题，后果请自负，与作者无关！程序代码中不会添加任何形式的后门，运行程序一般情况下不会对系统产生危害，请各位师傅放心使用！项目暂不考虑开源，因为代码写的还不够完美。本项目会持续更新，直到海枯石烂。
+Banli是一款简单好用的高危资产和高危漏洞扫描工具。本项目也是自己深入学习理解Go语言后计划陆续发布的项目之一。本项目仅用于安全研究人员在授权的情况下使用，请遵守网络安全法，若因本工具产生任何问题，后果请自负，与作者无关！程序代码中不会添加任何形式的后门，运行程序一般情况不会对系统产生危害，请各位师傅放心使用！本项目会持续更新，直到海枯石烂。作者：[0e0w](https://github.com/Goqi)。
 
-本项目创建于2021年10月16日，最近一次更新时间为2021年10月29日。
+本项目创建于2021年10月16日，最近一次更新时间为2021年11月15日。每月15日定期更新！
 
 - [0x01-基本介绍](https://github.com/Goqi/Banli#0x01-%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D)
 - [0x02-设计思路](https://github.com/Goqi/Banli#0x02-%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%B7%AF)
 - [0x03-使用说明](https://github.com/Goqi/Banli#0x03-%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E)
-- [0x04-资产列表](https://github.com/Goqi/Banli#0x04-%E8%B5%84%E4%BA%A7%E5%88%97%E8%A1%A8)
+- [0x04-支持列表](https://github.com/Goqi/Banli#0x04-%E6%94%AF%E6%8C%81%E5%88%97%E8%A1%A8)
 - [0x05-更新记录](https://github.com/Goqi/Banli#0x05-%E6%9B%B4%E6%96%B0%E8%AE%B0%E5%BD%95)
 - [0x06-未来计划](https://github.com/Goqi/Banli#0x06-%E6%9C%AA%E6%9D%A5%E8%AE%A1%E5%88%92)
 - [0x07-参考资源](https://github.com/Goqi/Banli#0x07-%E5%8F%82%E8%80%83%E8%B5%84%E6%BA%90)
@@ -43,8 +43,8 @@ Banli要解决的问题是如何快速识别企业的高危资产，如何快速
   ```
   D:\Go\src\Banli>go run Banli.go help
   程序作者:0e0w
-  程序名称:Banli(v0.6)
-  开发时间:2021年10月29日
+  程序名称:Banli(v0.7)
+  开发时间:2021年11月15日
   程序说明:一款简单好用的高危资产和高危漏洞扫描工具！
   请在当前目录创建urls.txt文件进行资产识别或扫描！！！
   
@@ -66,18 +66,25 @@ Banli要解决的问题是如何快速识别企业的高危资产，如何快速
     -h, --help   help for Banli
   
   Use "Banli [command] --help" for more information about a command.
-  程序运行完成！运行时间:14.15ms
+  程序运行完成！运行时间:18.913ms
   ```
 
 
-## 0x04-资产列表
+## 0x04-支持列表
 
-​	目前支持识别的资产：后期会定期进行更新！
+​	目前支持识别的资产应用和框架漏洞，不定期更新！
 
-- 通达OA、蓝凌OA、Shiro、Weblogic、Seeoyon、ThinkPHP、万户OA、phpMyAdmin、Coremail、红帆OA、ActiveMQ、Axis2、宝塔面板、ElasticSearch、帆软报表、Hadoop、Swagger、SpringBoot、Solr、Tomcat、Gitlab。
+- **支持识别的资产应用**：Banli.exe is
+
+  通达OA、蓝凌OA、Shiro、Weblogic、Seeoyon、ThinkPHP、万户OA、phpMyAdmin、Coremail、红帆OA、ActiveMQ、Axis2、宝塔面板、ElasticSearch、帆软报表、Hadoop、Swagger、SpringBoot、Solr、Tomcat、Gitlab、泛微 e-cology、泛微云桥 e-Bridge、泛微 e-office、亿邮邮件、Exchange、Flink、VMware ESXi、VMware vSphere。
+
+- **支持扫描的框架漏洞**：Banli.exe hack
+
+  Seeyon。
 
 ## 0x05-更新记录
 
+- 2021年11月15日：支持Seeyon漏洞扫描。添加新的资产识别。优化程序，发布v0.7版本。
 - 2021年10月29日：添加支持新的资产识别，优化程序。发布v0.6版本。
 - 2021年10月20日：添加单个资产的扫描方式。例：Banli.exe is thinkphp
 - 2021年10月19日：支持Title扫描。支持内网资产和外网资产分开扫描。
@@ -97,7 +104,9 @@ Banli要解决的问题是如何快速识别企业的高危资产，如何快速
 
 - https://golang.org
 - https://github.com/Goqi/Banli
-- https://github.com/0x727/FingerprintHub
 - https://github.com/veo/vscan
+- https://github.com/JKme/cube
+- https://github.com/r0eXpeR/fingerprint
+- https://github.com/0x727/FingerprintHub
 
 [![Stargazers over time](https://starchart.cc//Goqi/Banli.svg)](https://starchart.cc/Goqi/Banli)
