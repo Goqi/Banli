@@ -1,8 +1,8 @@
 # Banli
 
-Banli是一款简单好用的高危资产和高危漏洞扫描工具。本项目也是自己深入学习理解Go语言后计划陆续发布的项目之一。本项目仅用于安全研究人员在授权的情况下使用，请遵守网络安全法，若因本工具产生任何问题，后果请自负，与作者无关！程序代码中不会添加任何形式的后门，运行程序一般情况不会对系统产生危害，请各位师傅放心使用！本项目会持续更新，直到海枯石烂。作者：[0e0w](https://github.com/Goqi)。
+Banli是一款简单好用的高危资产和高危漏洞扫描工具。本项目也是自己深入学习理解Go语言后计划陆续发布的项目之一。本项目仅用于安全研究人员在授权的情况下使用，请遵守网络安全法，若因本工具产生任何问题，后果请自负，与作者无关！程序代码中不会添加任何形式的后门，运行程序一般情况不会对系统产生危害，请各位师傅放心使用！本项目会持续更新，直到海枯石烂。作者：[0e0w](https://github.com/0e0w)。
 
-本项目创建于2021年10月16日，最近一次更新时间为2021年11月15日。每月15日定期更新！
+本项目创建于2021年10月16日，最近一次更新时间为2021年12月15日。每月15日定期更新！
 
 - [0x01-基本介绍](https://github.com/Goqi/Banli#0x01-%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D)
 - [0x02-设计思路](https://github.com/Goqi/Banli#0x02-%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%B7%AF)
@@ -26,25 +26,28 @@ Banli要解决的问题是如何快速识别企业的高危资产，如何快速
 
 - 程序目前有如下功能：
   - **资产识别**
+    - 资产支持列表：Banli.exe is
     - 所有资产扫描：Banli.exe isall
-    - 内网资产扫描：Banli.exe isnei
-    - 外网资产扫描：Banli.exe iswai
-    - 单个资产支持列表：Banli.exe is
+    - OA 资产扫描：Banli.exe is oa
+    - 内网资产扫描：Banli.exe is nei
+    - 外网资产扫描：Banli.exe is wai
     - 单个高危资产扫描：Banli.exe is shiro
   - **漏洞扫描**
+    - 漏洞支持列表：Banli.exe hack
     - 单个漏洞全部资产扫描：Banli.exe hack seeyon
   - **信息收集**
     - title获取：Banli.exe title
-  - **端口扫描**
-    - 待实现
-
+- **端口扫描**
+  
+  - 待实现
+  
 - 运行程序，查看帮助信息：Banli.exe help
 
   ```
-  D:\Go\src\Banli>go run Banli.go help
+  D:\Go\src\Banli>Banli.exe help
   程序作者:0e0w
-  程序名称:Banli(v0.7)
-  开发时间:2021年11月15日
+  名称版本:Banli(v0.8)
+  开发时间:2021年12月15日 Github.com/Goqi/Banli
   程序说明:一款简单好用的高危资产和高危漏洞扫描工具！
   请在当前目录创建urls.txt文件进行资产识别或扫描！！！
   
@@ -55,35 +58,35 @@ Banli要解决的问题是如何快速识别企业的高危资产，如何快速
   Available Commands:
     completion  generate the autocompletion script for the specified shell
     hack        Scan single vulnerabilities.
+    hackall     Scan ALL vulnerabilities.
     help        Help about any command
     is          Scan single assets.
     isall       Scan all assets.
-    isnei       Scan Intranet assets.
-    iswai       Scan Extranet assets.
     title       Get assets title.
   
   Flags:
     -h, --help   help for Banli
   
   Use "Banli [command] --help" for more information about a command.
-  程序运行完成！运行时间:18.913ms
+  程序运行完成！运行时间:13.5851ms
   ```
 
 
 ## 0x04-支持列表
 
-​	目前支持识别的资产应用和框架漏洞，不定期更新！
+​	目前支持识别的资产应用和支持扫描的框架漏洞：
 
 - **支持识别的资产应用**：Banli.exe is
 
-  通达OA、蓝凌OA、Shiro、Weblogic、Seeoyon、ThinkPHP、万户OA、phpMyAdmin、Coremail、红帆OA、ActiveMQ、Axis2、宝塔面板、ElasticSearch、帆软报表、Hadoop、Swagger、SpringBoot、Solr、Tomcat、Gitlab、泛微 e-cology、泛微云桥 e-Bridge、泛微 e-office、亿邮邮件、Exchange、Flink、VMware ESXi、VMware vSphere。
+  activemq、ax2、baota、cas、confluence、coremail、dcuz、druid、dubbo、elasticsearch、exchange、eyoumail、finereport、flink、gerapy、gitlab、gogs、hadoop、harbor、hongfanoa、jboss、jeecms、jellyfin、jenkins、jinheroa、jira、jumpserver、jupyter、kibana、kingdee、kylin、landrayoa、leagsoft、liferay、metabase、mobileiron、nacos、ofbiz、phpmyadmin、rabbitmq、saltstack、seeyon、shiro、skywalking、solr、sonarqube、spark、springboot、struts、swagger、thinkphp、tomcat、tongdaoa、vesystem、vmware、wanhuoa、weaveroa、weblogic、websphere、yapi、yonyou、zabbix、zentao。
 
 - **支持扫描的框架漏洞**：Banli.exe hack
 
-  Seeyon。
+  seeyon、druid、weblogic、log4j、grafana。
 
 ## 0x05-更新记录
 
+- 2021年12月15日：新增37个资产识别。支持log4j、grafane、weblogic等部分漏洞扫描识别。完善优化程序，去除https证书过期导致无法识别的问题等。发布v0.8版本。
 - 2021年11月15日：支持Seeyon漏洞扫描。添加新的资产识别。优化程序，发布v0.7版本。
 - 2021年10月29日：添加支持新的资产识别，优化程序。发布v0.6版本。
 - 2021年10月20日：添加单个资产的扫描方式。例：Banli.exe is thinkphp
@@ -108,5 +111,9 @@ Banli要解决的问题是如何快速识别企业的高危资产，如何快速
 - https://github.com/JKme/cube
 - https://github.com/r0eXpeR/fingerprint
 - https://github.com/0x727/FingerprintHub
+
+## 0x08-交流群组
+
+![](Banli/wx.png)
 
 [![Stargazers over time](https://starchart.cc//Goqi/Banli.svg)](https://starchart.cc/Goqi/Banli)
