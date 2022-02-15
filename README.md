@@ -49,8 +49,8 @@ Banli要解决的问题是如何快速识别企业的高危资产，如何快速
   ```
   D:\Go\src\Banli>go run Banli.go help
   程序作者:0e0w
-  名称版本:Banli(v0.9)
-  开发时间:2022年1月15日 Github.com/Goqi/Banli
+  名称版本:Banli(v0.91)
+  开发时间:2022年2月15日 Github.com/Goqi/Banli
   程序说明:一款简单好用的高危资产和高危漏洞扫描工具！
   请在当前目录创建urls.txt文件进行资产识别或扫描！！！
   
@@ -75,38 +75,26 @@ Banli要解决的问题是如何快速识别企业的高危资产，如何快速
 
 ## 0x04-支持列表
 
-​	目前支持识别的资产应用和支持扫描的框架漏洞：
+- 目前支持识别的资产应用和支持扫描的框架漏洞：
 
 - **支持识别的资产应用**：Banli.exe is
-
   activemq、ax2、baota、cas、confluence、coremail、dcuz、druid、dubbo、elasticsearch、exchange、eyoumail、finereport、flink、gerapy、gitlab、gogs、hadoop、harbor、hongfanoa、jboss、jeecms、jellyfin、jenkins、jinheroa、jira、jumpserver、jupyter、kibana、kingdee、kylin、landrayoa、leagsoft、liferay、metabase、mobileiron、nacos、ofbiz、phpmyadmin、rabbitmq、saltstack、seeyon、shiro、skywalking、solr、sonarqube、spark、springboot、struts、swagger、thinkphp、tomcat、tongdaoa、vesystem、vmware、wanhuoa、weaveroa、weblogic、websphere、yapi、yonyou、zabbix、zentao。
 
 - **支持扫描的框架漏洞**：Banli.exe hack
-
   seeyon、druid、weblogic、log4j、grafana、apisix。
 
 ## 0x05-更新记录
 
 - 2022年2月15日：1.修复默认线程数太高导致内存指针报错的问题，添加用户可自定义线程数，感谢@T-T。
-
-  2.支持单个资产的识别，感谢@ᗡD。
-
+  2.支持单个资产的识别，感谢@ᗡD。v0.91版本暂时不对外公开！
 - 2022年1月15日：添加随机UserAgent。添加日志记录。添加APISIX漏洞扫描模块。
-
 - 2021年12月15日：新增37个资产识别。支持log4j、grafane、weblogic等部分漏洞扫描识别。完善优化程序，去除https证书过期导致无法识别的问题等。发布v0.8版本。
-
 - 2021年11月15日：支持Seeyon漏洞扫描。添加新的资产识别。优化程序，发布v0.7版本。
-
 - 2021年10月29日：添加支持新的资产识别，优化程序。发布v0.6版本。
-
 - 2021年10月20日：添加单个资产的扫描方式。例：Banli.exe is thinkphp
-
 - 2021年10月19日：支持Title扫描。支持内网资产和外网资产分开扫描。
-
 - 2021年10月18日：添加新的资产识别，Chestnut更名为Banli。
-
 - 2021年10月17日：优化程序，支持扫描单个资产列表，加入漏洞扫描功能。
-
 - 2021年10月16日：项目框架基本完成。
 
 ## 0x06-未来计划
