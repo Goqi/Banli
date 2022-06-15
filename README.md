@@ -65,10 +65,10 @@ Banli要解决的问题是如何快速识别企业的高危资产，如何快速
 
 - [x] **获取资产title**：Banli.exe get title
 - 程序自动对urls.txt内的资产进行title扫描。
-- [ ] **获取存活IP：**Banli.exe get ips 待实现
+- [ ] **获取存活IP：** Banli.exe get ips 待实现
 - [x] **获取Web资产**：Banli.exe get urls
 - 程序自动对ips.txt内的ip资产进行Web资产探测。支持IP段。
-- [ ] **Web路径扫描：**Banli.exe get path 待实现。后续通过[路婧](https://github.com/Goqi/Lujing)完整实现。
+- [ ] **Web路径扫描：** Banli.exe get path 待实现。后续通过[路婧](https://github.com/Goqi/Lujing)完整实现。
   - Banli.exe get path
 
 **四、密码爆破**
@@ -81,7 +81,6 @@ Banli要解决的问题是如何快速识别企业的高危资产，如何快速
 **五、被动扫描**
 
 - 被动扫描的设计思路是拦截请求，修改请求，重发数据。支持HTTPS扫描，程序第一次运行后自动生成证书，需要在浏览器中设置代理并导入证书。默认代理IP端口为127.0.0.1:8715
-
 - Banli.exe pass log4j
   - 勉强能用，速度奇慢。
 
