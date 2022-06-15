@@ -4,7 +4,7 @@
 
 Banli是一款极其简单好用的高危资产识别和高危漏洞扫描利用工具。本项目也是自己深入学习理解Go语言后计划陆续发布的项目之一。**本项目仅限用于安全研究人员在授权的情况下使用，请遵守网络安全法，若因本工具产生任何问题，后果请自负，与作者无关！** 程序代码中绝不会添加任何形式的后门，运行程序一般情况不会对目标系统产生危害，请各位师傅放心使用！**本项目会持续更新，直到海枯石烂。**  作者：[0e0w](https://github.com/0e0w)
 
-本项目创建于2021年10月16日，最近一次更新时间为2022年5月15日。**每月15日定期更新！**
+本项目创建于2021年10月16日，最近一次更新时间为2022年6月15日。**每月15日定期更新！**
 
 - [01-基本介绍](https://github.com/Goqi/Banli#01-%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D)
 - [02-设计思路](https://github.com/Goqi/Banli#02-%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%B7%AF)
@@ -28,17 +28,17 @@ Banli要解决的问题是如何快速识别企业的高危资产，如何快速
 
 ## 03-使用说明
 
-程序设计时遵循简单原则。本人受够了支持一大堆参数的程序，这样的程序简直就像shi一样！所以本项目没有用户可控参数，**所有参数用户都无法自定义**。
+程序设计时遵循简单原则。本项目没有用户可控参数，**所有参数用户都无法自定义**。必要修改的参数可以通过修改当前目录下配置文件Banli.ini进行设置。
 
 **1、资产识别模块都是对当前路径的urls.txt文件进行扫描，支持多种URL格式，一行一个，结尾不能有/号，不能存在无效的URL格式！否则会影响程序的识别效果，或直接导致程序无法运行！**
 
 **2、漏洞扫描模块都是对资产识别之后自动生成的文件进行扫描。** 例如：通过命令Banli.exe is seeyon扫描Seeyon资产，如果存在Seeyon资产，则自动创建isSeeyon.txt文件。之后可以使用Banli.exe hack seeyon对isSeeyon.txt文件内的资产进行Seeyon漏洞扫描。**减少无用功，拒绝无效努力！**
 
-**3、信息收集模块目前仅支持网址Title扫描。** 后期支持端口扫描和资产发现功能！
+**3、信息收集模块支持网站Title扫描。** 后期支持端口扫描和资产发现功能！
 
 **4、密码爆破模块目前支持大多数的可爆破服务。**
 
-**5、被动扫描加爬虫扫描是一款扫描器的最后追求！** 待更新！
+**5、被动扫描加爬虫扫描是一款扫描器的最后追求！** 
 
 **一、资产识别**
 
@@ -54,29 +54,36 @@ Banli要解决的问题是如何快速识别企业的高危资产，如何快速
 
 **二、漏洞扫描**
 - 支持扫描的框架漏洞：seeyon、druid、weblogic、log4j、grafana、apisix、spring。
+- 全部漏洞扫描：Banli.exe hack god 该功能待公开
 - 漏洞支持列表：Banli.exe hack log4j
-  - jndiserver.txt中替换成自己的dnslog平台，扫描完成后在自己的dnslog上面看记录。
+  - dnslog.txt中替换成自己的dnslog平台，扫描完成后在自己的dnslog上面看记录。
   - 使用Banli.exe hack log4j扫描log4j的资产是否存在漏洞，概念验证，无法获取权限。
   - 目前：支持Druid、Flink、JSPWiki、OFBiz、SkyWalking、Solr、Struts2、CAS、MonbileIro User Portal、Seeyon、Unifi Network、VMware HCX、VMware Horizon、VMware NSX、VMware vCenter、VMware vRealize、VMware Workspace One、Zipkin
 - 单个漏洞全部资产扫描：Banli.exe hack seeyon
 
 **三、信息收集**
 
-- title获取：Banli.exe get title
-- 获取内网ips：Banli.exe get ips 待实现
-- 获取内网urls：Banli.exe get urls 待实现
-- 目录扫描：Banli.exe get path 待实现
+- [x] **获取资产title**：Banli.exe get title
+- 程序自动对urls.txt内的资产进行title扫描。
+- [ ] **获取存活IP：**Banli.exe get ips 待实现
+- [x] **获取Web资产**：Banli.exe get urls
+- 程序自动对ips.txt内的ip资产进行Web资产探测。支持IP段。
+- [ ] **Web路径扫描：**Banli.exe get path 待实现。后续通过[路婧](https://github.com/Goqi/Lujing)完整实现。
+  - Banli.exe get path
 
 **四、密码爆破**
 
 - Banli.exe is crack
-- 扫描IP可以进行爆破的高危端口。请将ip资产保存到ips.txt，一行一个。
+  - 扫描IP可以进行爆破的高危端口。请将ip资产保存到ips.txt，一行一个。
 - Banli.exe crack
-- 对isCrack.txt内的资产进行默认端口密码爆破。例:127.0.0.2:22。目前支持：FTP、SSH、MsSQL、MySQL、PostgreSQL、MongoDB。用户名和密码字典为crackuser.txt和crackpass.txt
+  - 对isCrack.txt内的资产进行默认端口密码爆破。例:127.0.0.2:22。目前支持：FTP、SSH、MsSQL、MySQL、PostgreSQL、MongoDB。用户名和密码字典为crackuser.txt和crackpass.txt
 
 **五、被动扫描**
 
-- 目前不支持。
+- 被动扫描的设计思路是拦截请求，修改请求，重发数据。支持HTTPS扫描，程序第一次运行后自动生成证书，需要在浏览器中设置代理并导入证书。默认代理IP端口为127.0.0.1:8715
+
+- Banli.exe pass log4j
+  - 勉强能用，速度奇慢。
 
 **六、爬虫扫描**
 
@@ -84,6 +91,7 @@ Banli要解决的问题是如何快速识别企业的高危资产，如何快速
 
 ## 04-更新记录
 
+- 2022年6月15日：1.新增Banli.ini配置文件，可自定义部分参数。感谢@FR33D0M提供的折中思路。2.添加Log4j漏洞的被动扫描。3.新增Banli.exe get urls。可扫描ips.txt内的Web资产。4.新增Confluence CVE-2022-26134及其他俩个CVE漏洞扫描。5.新增MS17010漏洞概念扫描。
 - 2022年5月15日：1.支持vmware 3个漏洞扫描。2.支持solr 4个漏洞扫描。3.支持spring 4个漏洞扫描。4.支持Thinkphp 18个漏洞扫描。5.支持Shiro-550 key识别漏洞扫描，Shiro-550 exp扫描（暂不公开）。6.更新22个组件的log4j漏洞扫描。7.更新优化web识别。8.添加其他的漏洞扫描。9.更新如果执行hack命令时没有对应的资产则自动执行is模块。
 - 2022年4月15日：1.增加高危爆破端口扫描、增加密码爆破功能。2.新增多个资产识别。3.新增18个Log4j2相关组件的漏洞扫描（Banli.exe hack log4j2）。4.程序大量优化，优化识别规则多线程等问题。
 - 2022年4月8日：今天本程序被一些微信群推荐，感谢。优化程序，更新代码逻辑。
@@ -101,9 +109,11 @@ Banli要解决的问题是如何快速识别企业的高危资产，如何快速
 
 ## 05-未来计划
 
+- [ ] ms17010支持IP段扫描。
+- [ ] 添加代理扫描。
 - [ ] 优化不同操作系统下的漏洞验证。
-- [ ] ips.txt支持C段B段模式。
-- [ ] 添加高危漏洞被动扫描功能！！！
+- [x] ips.txt支持C段B段模式。
+- [x] 添加高危漏洞被动扫描功能！！！
 - [ ] crack模块爆破互联网时指针错误，该bug待更新。
 - [ ] 对输出结果进行优化，支持输出到excel文件。
 - [ ] 添加敏感路径爆破收集功能。添加资产发现模块。
