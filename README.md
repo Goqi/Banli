@@ -70,30 +70,30 @@ Banli要解决的问题是如何快速识别企业的高危资产，如何快速
 - 支持扫描的框架漏洞：seeyon、druid、weblogic、log4j、grafana、apisix、spring。
 - 所有资产全部漏洞扫描：Banli.exe hack god 该功能待公开
 - 单个漏洞全部资产扫描：Banli.exe hack seeyon
-- **支持漏洞 **：Banli.exe hack log4j
+- **支持漏洞** ：Banli.exe hack log4j
   - dnslog.txt中替换成自己的dnslog平台，扫描完成后在自己的dnslog上面看记录。
   - 使用Banli.exe hack log4j扫描log4j的资产是否存在漏洞，概念验证，无法获取权限。
   - 目前支持：Druid、Flink、JSPWiki、OFBiz、SkyWalking、Solr、Struts2、CAS、MonbileIro User Portal、Seeyon、Unifi Network、VMware HCX、VMware Horizon、VMware NSX、VMware vCenter、VMware vRealize、VMware Workspace One、Zipkin
-- **支持漏洞 **：Banli.exe hack thinkphp
+- **支持漏洞** ：Banli.exe hack thinkphp
   - 目前支持26个Thinkphp的不同版本的漏洞。
-- **支持漏洞 **：Banli.exe hack weblogic
+- **支持漏洞** ：Banli.exe hack weblogic
 
 **三、信息收集**
 
-- [x] **获取资产title **：Banli.exe get title
+- [x] **获取资产title** ：Banli.exe get title
 - 程序自动对urls.txt内的资产进行title扫描。
-- [x] **获取存活网段 **：Banli.exe get ipc 默认tcp扫描
+- [x] **获取存活网段** ：Banli.exe get ipc 默认tcp扫描
 - 程序自动获取内网中存活的网段。一行一个存活的C段，保存到output/ipc.txt
   - Banli.exe get ipc tcp
   - Banli.exe get ipc icmp
   - Banli.exe get ipc ping
   - Banli.exe get ipc udp
   - Banli.exe get ipc arp
-- [ ] **获取存活IP **：Banli.exe get ips 待实现
+- [ ] **获取存活IP** ：Banli.exe get ips 待实现
 - 获取内网中存活的单个IP地址。一行一个地址保存到ips.txt
-- [x] **获取Web资产 **：Banli.exe get urls
+- [x] **获取Web资产** ：Banli.exe get urls
 - 程序自动对ips.txt内的ip资产进行Web资产探测。支持IP段。
-- [ ] **Web路径扫描 **：Banli.exe get path 待实现。后续通过[路婧](https://github.com/Goqi/Lujing)完整实现。
+- [ ] **Web路径扫描** ：Banli.exe get path 待实现。后续通过[路婧](https://github.com/Goqi/Lujing)完整实现。
   - Banli.exe get path
 
 **四、密码爆破**
