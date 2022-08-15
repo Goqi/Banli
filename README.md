@@ -4,7 +4,7 @@
 
 Banli是一款极其简单好用的高危资产识别和高危漏洞扫描利用工具。本项目也是自己深入学习理解Go语言后陆续发布的项目之一。**本项目仅限用于安全研究人员在授权的情况下使用，请遵守网络安全法，若因本工具产生任何问题，后果请自负，与作者无关！** 程序代码中绝不会添加任何形式的后门，运行程序一般情况不会对目标系统产生危害，请各位师傅放心使用！**本项目会持续更新，直到海枯石烂。**  作者：[0e0w](https://github.com/0e0w)
 
-本项目创建于2021年10月16日，最近一次更新时间为2022年7月15日。**每月15日定期更新！**
+本项目创建于2021年10月16日，最近一次更新时间为2022年8月15日。**每月15日定期更新！**
 
 - [01-Banli基本介绍](https://github.com/Goqi/Banli#01-Banli%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D)
 - [02-Banli设计思路](https://github.com/Goqi/Banli#02-Banli%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%B7%AF)
@@ -71,10 +71,21 @@ Banli要解决的问题是如何快速识别企业的高危资产，如何快速
 - 所有资产全部漏洞扫描：Banli.exe hack god 该功能待公开
 - 单个漏洞全部资产扫描：Banli.exe hack seeyon
 - **支持漏洞** ：Banli.exe hack log4j
-  - dnslog.txt中替换成自己的dnslog平台，扫描完成后在自己的dnslog上面看记录。
-  - 使用Banli.exe hack log4j扫描log4j的资产是否存在漏洞，概念验证，无法获取权限。
-  - 目前支持：Druid、Flink、JSPWiki、OFBiz、SkyWalking、Solr、Struts2、CAS、MonbileIro User Portal、Seeyon、Unifi Network、VMware HCX、VMware Horizon、VMware NSX、VMware vCenter、VMware vRealize、VMware Workspace One、Zipkin
+  - 将Banli.ini文件中的dnslog值替换成自己的地址。扫描完成后在自己的dnslog上面看记录。
+
+  - Banli.exe hack log4j
+
+    扫描特定资产的Log4j2漏洞。目前支持：Druid、Flink、JSPWiki、OFBiz、SkyWalking、Solr、Struts2、CAS、MonbileIro User Portal、Seeyon、Unifi Network、VMware HCX、VMware Horizon、VMware NSX、VMware vCenter、VMware vRealize、VMware Workspace One、Zipkin
+
+  - Banli.exe hack log4j fuzz
+
+    测试urls.txt文件中HTTP头是否存在漏洞。此模块将会发送大量的请求包。
+
+  - Banli.exe hack log4j scan d:/
+
+    扫描本地目录的代码中是否存在危险的log4j框架。结果保存到output文件夹内。
 - **支持漏洞** ：Banli.exe hack thinkphp
+  
   - 目前支持26个Thinkphp的不同版本的漏洞。
 - **支持漏洞** ：Banli.exe hack weblogic
 
@@ -82,6 +93,10 @@ Banli要解决的问题是如何快速识别企业的高危资产，如何快速
 
 - [x] **获取资产title** ：Banli.exe get title
 - 程序自动对urls.txt内的资产进行title扫描。
+
+- [x] **获取资产js文件** ：Banli.exe get js
+- 程序自动对urls.txt内的资产进行js文件的扫描。
+
 - [x] **获取存活网段** ：Banli.exe get ipc 默认tcp扫描
 - 程序自动获取内网中存活的网段。一行一个存活的C段，保存到output/ipc.txt
   - Banli.exe get ipc tcp
@@ -115,6 +130,7 @@ Banli要解决的问题是如何快速识别企业的高危资产，如何快速
 
 ## 04-Banli更新记录
 
+- 2022年8月15日：1.HTTP请求全部换成了fasthttp。目前来看，比原生http效率确实提升不少。2.新增get js模块。可以识别urls.txt资产中的js文件。参考了[URLFinder](https://github.com/pingc0y/URLFinder)，感谢pingc0y。3.更新log4j漏洞扫描模块，支持1000多个HTTP头的fuzz，实际测试效果还不错。4.新增socks5和http代理模式。在Banli.ini中配置。
 - 2022年7月15日：1.新增邮件发送功能，程序每次执行后都将output压缩并发送到邮件，邮箱信息在Banli.ini里面配置。2.更新内网存活资产网段探测。Banli.exe get ipc。3.新增网站备份文件扫描。Banli.exe get bak。4.新增运行程序时会判断是否存在Bnali.ini，若不存在则自动创建。5.更新了几个OA的漏洞扫描。6.将结果输出保存到output文件夹里。新建input文件夹，里面包含程序的默认执行文件。7.程序执行前自动对urls.txt和ips.txt资产进行去重操作。8.对程序进行了大量的优化更新。
 - 2022年6月15日：1.新增Banli.ini配置文件，可自定义部分参数。感谢@FR33D0M提供的折中思路。2.添加Log4j漏洞的被动扫描。3.新增Banli.exe get urls。可扫描ips.txt内的Web资产。4.新增Confluence CVE-2022-26134及其他俩个CVE漏洞扫描。5.新增MS17010漏洞概念扫描。
 - 2022年5月15日：1.支持vmware 3个漏洞扫描。2.支持solr 4个漏洞扫描。3.支持spring 4个漏洞扫描。4.支持Thinkphp 18个漏洞扫描。5.支持Shiro-550 key识别漏洞扫描，Shiro-550 exp扫描（暂不公开）。6.更新22个组件的log4j漏洞扫描。7.更新优化web识别。8.添加其他的漏洞扫描。9.更新如果执行hack命令时没有对应的资产则自动执行is模块。
@@ -134,12 +150,14 @@ Banli要解决的问题是如何快速识别企业的高危资产，如何快速
 
 ## 05-Banli未来计划
 
-- [ ] 更新WEB框架！
+- [ ] 程序日志记录功能不够完善，后续更新！
 - [ ] 爆破时若字典文件不存在，则自动创建字典文件。
 - [ ] 支持所有漏洞一键扫描。
-- [ ] 添加支持代理扫描。
 - [ ] crack模块爆破互联网时指针错误，该bug待更新。
 - [ ] 对输出结果进行优化，支持输出到excel文件。
+- [ ] 添加代理池自动收集实现匿名扫描。
+- [ ] 更新WEB框架！
+- [x] 添加支持代理扫描。支持HTTP代理和socks5代理。
 - [x] 优化不同操作系统下的漏洞验证。
 - [x] 对扫描的结果进行压缩加密保存。
 - [x] 添加敏感路径爆破收集功能。添加资产发现模块。
@@ -153,13 +171,14 @@ Banli要解决的问题是如何快速识别企业的高危资产，如何快速
 
 ## 06-感谢参考项目
 
-本项目开发过程中参加了这些项目的代码思路等！感谢这些作者，感谢开源社区！
+本项目开发过程中参加了这些项目的代码思路或漏洞详情等！感谢这些作者，感谢开源社区！
 - https://github.com/veo/vscan
 - https://github.com/JKme/cube
 - https://github.com/r0eXpeR/fingerprint
 - https://github.com/0x727/FingerprintHub
 - https://github.com/shmilylty/netspy
 - https://github.com/achuna33/MYExploit
+- https://github.com/Threekiii/Awesome-POC
 
 ## Stargazers
 
