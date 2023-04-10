@@ -130,7 +130,7 @@ Banli要解决的问题是如何快速识别企业的高危资产，如何快速
 
 ## 04-Banli更新记录
 
-- 2023年4月10日：1.程序本级目录必须存着0e0w.js文件，否则无法运行。2.新增Banli.exe get ips 快速获取IP段中存活的IP地址。3.优化垃圾代码。
+- 2023年4月10日：1.程序本级目录必须存在0e0w.js文件，否则无法运行。2.新增Banli.exe get ips 快速获取IP段中存活的IP地址。3.优化部分垃圾代码。
 - 2022年8月15日：1.HTTP请求全部换成了fasthttp。目前来看，比原生http效率确实提升不少。2.新增get js模块。可以识别urls.txt资产中的js文件。参考了[URLFinder](https://github.com/pingc0y/URLFinder)，感谢pingc0y。3.更新log4j漏洞扫描模块，支持1000多个HTTP头的fuzz，实际测试效果还不错。4.新增socks5和http代理模式。在Banli.ini中配置。
 - 2022年7月15日：1.新增邮件发送功能，程序每次执行后都将output压缩并发送到邮件，邮箱信息在Banli.ini里面配置。2.更新内网存活资产网段探测。Banli.exe get ipc。3.新增网站备份文件扫描。Banli.exe get bak。4.新增运行程序时会判断是否存在Bnali.ini，若不存在则自动创建。5.更新了几个OA的漏洞扫描。6.将结果输出保存到output文件夹里。新建input文件夹，里面包含程序的默认执行文件。7.程序执行前自动对urls.txt和ips.txt资产进行去重操作。8.对程序进行了大量的优化更新。
 - 2022年6月15日：1.新增Banli.ini配置文件，可自定义部分参数。感谢@FR33D0M提供的折中思路。2.添加Log4j漏洞的被动扫描。3.新增Banli.exe get urls。可扫描ips.txt内的Web资产。4.新增Confluence CVE-2022-26134及其他俩个CVE漏洞扫描。5.新增MS17010漏洞概念扫描。
