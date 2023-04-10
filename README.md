@@ -4,7 +4,7 @@
 
 Banli是一款极其简单好用的高危资产识别和高危漏洞扫描利用工具。本项目也是自己深入学习理解Go语言后陆续发布的项目之一。**本项目仅限用于安全研究人员在授权的情况下使用，请遵守网络安全法，若因本工具产生任何问题，后果请自负，与作者无关！** 程序代码中绝不会添加任何形式的后门，运行程序一般情况不会对目标系统产生危害，请各位师傅放心使用！**本项目会持续更新，直到海枯石烂。**  作者：[0e0w](https://github.com/0e0w)
 
-本项目创建于2021年10月16日，最近一次更新时间为2022年8月15日。**每月15日定期更新！**
+本项目创建于2021年10月16日，最近一次更新时间为2023年4月10日。
 
 - [01-Banli基本介绍](https://github.com/Goqi/Banli#01-Banli%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D)
 - [02-Banli设计思路](https://github.com/Goqi/Banli#02-Banli%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%B7%AF)
@@ -30,11 +30,11 @@ Banli要解决的问题是如何快速识别企业的高危资产，如何快速
 
 - Banli.ini 全局参数设置
 - ips.txt 单个存活的ip
-- ipc.txt 内网存活的IP网段
+- ipc.txt 内网存活的IPC段
+- ipb.txt 内网存活的IPB段
 - urls.txt 单个Web资产
 - user.txt 爆破时的用户名字典
 - pass.txt爆破时的密码字典
-- dnslog.txt dnslog地址
 - Banlilogs.txt 程序运行日志
 
 ## 03-Banli使用说明
@@ -98,14 +98,14 @@ Banli要解决的问题是如何快速识别企业的高危资产，如何快速
 - 程序自动对urls.txt内的资产进行js文件的扫描。
 
 - [x] **获取存活网段** ：Banli.exe get ipc 默认tcp扫描
-- 程序自动获取内网中存活的网段。一行一个存活的C段，保存到output/ipc.txt
+- 程序自动获取内网中存活的网段。一行一个存活的C段，保存到ipc.txt
   - Banli.exe get ipc tcp
   - Banli.exe get ipc icmp
   - Banli.exe get ipc ping
   - Banli.exe get ipc udp
   - Banli.exe get ipc arp
-- [ ] **获取存活IP** ：Banli.exe get ips 待实现
-- 获取内网中存活的单个IP地址。一行一个地址保存到ips.txt
+- [x] **获取存活IP** ：Banli.exe get ips
+- 获取内网中存活的单个IP地址。将IP网段保存到ipc.txt中。运行，在ips.txt中得到存活的IP地址。
 - [x] **获取Web资产** ：Banli.exe get urls
 - 程序自动对ips.txt内的ip资产进行Web资产探测。支持IP段。
 - [ ] **Web路径扫描** ：Banli.exe get path 待实现。后续通过[路婧](https://github.com/Goqi/Lujing)完整实现。
@@ -122,7 +122,7 @@ Banli要解决的问题是如何快速识别企业的高危资产，如何快速
 
 - 被动扫描的设计思路是拦截请求，修改请求，重发数据。支持HTTPS扫描，程序第一次运行后自动生成证书，需要在浏览器中设置代理并导入证书。默认代理IP端口为127.0.0.1:8715
 - Banli.exe pass log4j
-  - 勉强能用，速度奇慢。
+  - ~~勉强能用，速度奇慢。~~ 此功能暂时关闭！
 
 **六、爬虫扫描**
 
@@ -130,6 +130,7 @@ Banli要解决的问题是如何快速识别企业的高危资产，如何快速
 
 ## 04-Banli更新记录
 
+- 2023年4月10日：1.程序本级目录必须存着0e0w.js文件，否则无法运行。2.新增Banli.exe get ips 快速获取IP段中存活的IP地址。3.优化垃圾代码。
 - 2022年8月15日：1.HTTP请求全部换成了fasthttp。目前来看，比原生http效率确实提升不少。2.新增get js模块。可以识别urls.txt资产中的js文件。参考了[URLFinder](https://github.com/pingc0y/URLFinder)，感谢pingc0y。3.更新log4j漏洞扫描模块，支持1000多个HTTP头的fuzz，实际测试效果还不错。4.新增socks5和http代理模式。在Banli.ini中配置。
 - 2022年7月15日：1.新增邮件发送功能，程序每次执行后都将output压缩并发送到邮件，邮箱信息在Banli.ini里面配置。2.更新内网存活资产网段探测。Banli.exe get ipc。3.新增网站备份文件扫描。Banli.exe get bak。4.新增运行程序时会判断是否存在Bnali.ini，若不存在则自动创建。5.更新了几个OA的漏洞扫描。6.将结果输出保存到output文件夹里。新建input文件夹，里面包含程序的默认执行文件。7.程序执行前自动对urls.txt和ips.txt资产进行去重操作。8.对程序进行了大量的优化更新。
 - 2022年6月15日：1.新增Banli.ini配置文件，可自定义部分参数。感谢@FR33D0M提供的折中思路。2.添加Log4j漏洞的被动扫描。3.新增Banli.exe get urls。可扫描ips.txt内的Web资产。4.新增Confluence CVE-2022-26134及其他俩个CVE漏洞扫描。5.新增MS17010漏洞概念扫描。
@@ -150,6 +151,8 @@ Banli要解决的问题是如何快速识别企业的高危资产，如何快速
 
 ## 05-Banli未来计划
 
+- [ ] 处理HTTPS请求时存在问题！例如：minio
+- [ ] 将工具字典文件等内容融合到程序中，需要的时候解压。
 - [ ] 程序日志记录功能不够完善，后续更新！
 - [ ] 爆破时若字典文件不存在，则自动创建字典文件。
 - [ ] 支持所有漏洞一键扫描。
